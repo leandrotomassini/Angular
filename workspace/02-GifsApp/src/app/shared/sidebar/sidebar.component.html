@@ -3,7 +3,7 @@
     <hr class="text-white">
     <div class="list-group list-reset">
         <a href="#" class="list-group-item list-group-item-action" *ngFor="let registro of historial">
-            {{ registro }}
+            {{ registro | titlecase }}
         </a>
     </div>
 </div>
