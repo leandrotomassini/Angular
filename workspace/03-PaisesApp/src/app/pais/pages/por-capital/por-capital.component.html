@@ -1,1 +1,19 @@
-<p>por-capital works!</p>
+<h3>Por capital</h3>
+<hr>
+
+<div class="row">
+    <div class="col">
+      <app-pais-input
+        (onEnter)="buscar( $event )"
+        [placeholder] = "placeholder"
+      ></app-pais-input>
+    </div>
+</div>
+
+<hr>
+
+<div *ngIf="hayError" class="alert alert-danger">
+    No se encontro nada con el termino abc123.
+</div>
+
+<app-pais-tabla [paises] ="paises"></app-pais-tabla>
