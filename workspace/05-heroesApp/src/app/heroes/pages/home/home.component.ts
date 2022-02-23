@@ -4,8 +4,8 @@ import { Component, OnInit } from '@angular/core';
   selector: 'app-home',
   templateUrl: './home.component.html',
   styles: [`
-    .container{
-      padding: 10px;
+    .container {
+      margin: 10px;
     }
   `]
 })

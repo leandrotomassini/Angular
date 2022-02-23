@@ -3,14 +3,14 @@ import { RouterModule, Routes } from '@angular/router';
 
 import { ErrorPageComponent } from './shared/error-page/error-page.component';
 
-const rutas: Routes = [
+const routes: Routes = [
   {
     path: 'auth',
-    loadChildren: () => import('./auth/auth.module').then(m => m.AuthModule)
+    loadChildren: () => import('./auth/auth.module').then( m => m.AuthModule )
   },
   {
     path: 'heroes',
-    loadChildren: () => import('./heroes/heroes.module').then(m => m.HeroesModule)
+    loadChildren: () => import('./heroes/heroes.module').then( m => m.HeroesModule )
   },
   {
     path: '404',
@@ -18,13 +18,15 @@ const rutas: Routes = [
   },
   {
     path: '**',
+    // component: ErrorPageComponent
     redirectTo: '404'
   }
 ]
 
+
 @NgModule({
   imports: [
-    RouterModule.forRoot(rutas)
+    RouterModule.forRoot( routes )
   ],
   exports: [
     RouterModule
