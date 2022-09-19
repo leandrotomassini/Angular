@@ -1,0 +1,19 @@
+<ion-card-content>
+  <ion-grid fixed>
+    <ion-row>
+      <ion-col size="6" *ngFor="let gif of resultados">
+        <ion-card class="animate__animated animate__fadeIn animated__faster">
+          <ion-card-header>
+            <ion-card-subtitle>
+              <ion-label>{{gif.title}}</ion-label>
+            </ion-card-subtitle>
+          </ion-card-header>
+          <ion-card-content>
+            <ion-img [src]="gif.images.downsized_medium.url"></ion-img>
+          </ion-card-content>
+        </ion-card>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+
+</ion-card-content>

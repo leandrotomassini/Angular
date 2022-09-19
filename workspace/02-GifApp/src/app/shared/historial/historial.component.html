@@ -1,0 +1,7 @@
+<ion-card-header>
+  <ion-card-title>Gifs App</ion-card-title>
+</ion-card-header>
+
+<ion-item *ngFor="let busqueda of historial" (click)="buscar(busqueda)">
+  <ion-label>{{busqueda | titlecase}}</ion-label>
+</ion-item>
