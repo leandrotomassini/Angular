@@ -14,7 +14,9 @@ export class PorPaisComponent {
   termino: string = '';
   hayError: boolean = false;
   paises: Country[] = [];
+  paisesSugeridos: Country[] = [];
   placeholder: string = 'Buscar país...';
+  mostrarSugerencias: boolean = false;
 
   constructor(private paisService: PaisService) { }
 
@@ -22,7 +24,7 @@ export class PorPaisComponent {
 
     this.hayError = false;
     this.termino = termino;
-    
+
     this.paisService.buscarPais(this.termino)
       .subscribe({
         next: (paises) => {
@@ -35,7 +37,19 @@ export class PorPaisComponent {
       });
   }
 
-  sugerencias(termino:string){
+  sugerencias(termino: string) {
     this.hayError = false;
+    this.termino = termino;
+    this.mostrarSugerencias = true;
+
+    this.paisService.buscarPais(termino).subscribe(paises => {
+      this.paisesSugeridos = paises.splice(0, 5),
+        () => this.paisesSugeridos = []
+    });
+  }
+
+  buscarSugerido(termino: string) {
+    this.buscar(termino);
+    this.mostrarSugerencias = false;
   }
 }

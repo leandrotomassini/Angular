@@ -1,7 +1,7 @@
 <h2>Por capital</h2>
 <hr>
 
-<div class="row">
+<div class="row animate__animated animate__fadeIn animate__faster">
     <div class="col">
         <app-pais-input (onEnter)="buscar($event)" [placeholder]="placeholder" (onDebounce)="sugerencias($event)"></app-pais-input>
     </div>
@@ -9,11 +9,11 @@
 
 <hr>
 
-<div class="alert alert-danger" *ngIf="hayError && termino !=''">
+<div class="alert alert-danger animate__animated animate__fadeIn animate__faster" *ngIf="hayError && termino !=''">
     No se encontró nada con el término {{termino}}.
 </div>
 
-<div class="row" *ngIf="paises.length > 0">
+<div class="row animate__animated animate__fadeIn animate__faster" *ngIf="paises.length > 0">
     <div class="col">
         <app-pais-tabla [paises]="paises"></app-pais-tabla>
     </div>
