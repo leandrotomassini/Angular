@@ -2,6 +2,10 @@
 /dist
 /node_modules
 
+mongo/
+.env
+
+
 # Logs
 logs
 *.log
@@ -33,9 +37,3 @@ lerna-debug.log*
 !.vscode/tasks.json
 !.vscode/launch.json
 !.vscode/extensions.json
-
-# Docker db
-mongo/
-
-# Enviroments
-.env
