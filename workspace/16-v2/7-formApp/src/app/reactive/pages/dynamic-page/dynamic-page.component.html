@@ -1,0 +1,84 @@
+<h2>Reactivos: <small> Dinámicos </small></h2>
+<hr>
+
+<form autocomplete="off" [formGroup]="myForm" (ngSubmit)="onSubmit()">
+
+  <!-- Nombre -->
+  <div class="mb-3 row">
+    <label class="col-form-label col-sm-3">Nombre</label>
+    <div class="col-sm-9">
+      <input class="form-control" placeholder="Nombre de la persona" formControlName="name">
+      <span class="form-text text-danger" *ngIf="isValidField('name')">
+        {{getFieldError('name')}}
+      </span>
+    </div>
+  </div>
+
+  <!-- Agregar Favorito -->
+  <div class="mb-3 row">
+    <label class="col-form-label col-sm-3">Agregar</label>
+    <div class="col-sm-9">
+
+      <div class="input-group">
+        <input class="form-control" placeholder="Agregar favorito">
+
+        <button class="btn btn-outline-primary" type="button">
+          Agregar favorito
+        </button>
+      </div>
+    </div>
+  </div>
+
+
+  <!-- Lista de Juegos Favoritos -->
+  <div class="mb-3 row">
+    <label class="col-form-label col-sm-3">Favoritos</label>
+    <div class="col-sm-9" formArrayName="favoriteGames">
+
+      <div class="mb-1" *ngFor="let favorite of favoriteGames.controls; let i = index">
+
+        <div class="input-group">
+
+          <input class="form-control" [formControlName]="i">
+
+          <button class="btn btn-outline-danger" type="button">
+            Eliminar
+          </button>
+        </div>
+
+        <span class="form-text text-danger" *ngIf="isValidField('name')">
+          {{getFieldError('name')}}
+        </span>
+
+      </div>
+
+    </div>
+  </div>
+
+
+
+  <div class="row">
+    <div class="col-sm-12">
+      <button type="submit" class="float-end btn btn-primary">
+        <!-- [disabled]="myForm.invalid" -->
+        Guardar
+      </button>
+    </div>
+  </div>
+
+
+</form>
+
+
+
+<span>Valid</span>
+<pre>{{ 'object' | json }}</pre>
+<br>
+
+<span>Value</span>
+<pre>{{ 'object' | json }}</pre>
+<br>
+
+<span>Agregar Juego</span>
+<pre>{{ 'object' | json }}</pre>
+<pre>{{ 'object' | json }}</pre>

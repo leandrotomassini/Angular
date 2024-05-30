@@ -1,0 +1,91 @@
+<h2>Reactivos: Básicos</h2>
+<hr>
+
+<div class="row">
+  <div class="col">
+
+    <form autocomplete="off" [formGroup]="myForm" (ngSubmit)="onSave()">
+
+      <!-- Campo de producto -->
+      <div class="mb-3 row">
+        <label class="col-form-label col-sm-3">Producto</label>
+        <div class="col-sm-9">
+
+          <input type="text" class="form-control" placeholder="Nombre del producto" formControlName="name">
+
+          <span *ngIf="isValidField('name')" class="form-text text-danger">
+            {{getFieldError('name')}}
+          </span>
+        </div>
+      </div>
+
+      <!-- Campo de producto -->
+      <div class="mb-3 row">
+        <label class="col-form-label col-sm-3">Precio</label>
+        <div class="col-sm-9">
+          <input type="number" class="form-control" placeholder="Precio del producto" formControlName="price">
+          <span *ngIf="isValidField('price')" class="form-text text-danger">
+            El precio debe de ser 0 o mayor
+          </span>
+        </div>
+      </div>
+
+      <!-- Campo de existencias -->
+      <div class="mb-3 row">
+        <label class="col-form-label col-sm-3">Existencias</label>
+        <div class="col-sm-9">
+          <input type="number" class="form-control" placeholder="Existencias del producto" formControlName="inStorage">
+
+          <span *ngIf="isValidField('inStorage')"  class="form-text text-danger">
+            Las existencias deben de ser 0 o mayor
+          </span>
+        </div>
+      </div>
+
+
+      <div class="row">
+        <div class="col">
+          <button type="submit" class="float-end btn btn-primary">
+            Guardar
+          </button>
+        </div>
+      </div>
+
+
+
+    </form>
+
+  </div>
+</div>
+
+
+
+
+<div class="row">
+  <div class="col">
+
+    <span>Valid</span>
+    <pre>{{ myForm.valid| json }}</pre>
+
+    <span>Pristine</span>
+    <pre>{{ myForm.pristine| json }}</pre>
+
+    <span>Touched</span>
+    <pre>{{ myForm.touched| json }}</pre>
+
+    <span>Value</span>
+    <pre>{{ myForm.value| json }}</pre>
+
+    <span>Precio</span>
+    <pre>{{ myForm.controls['price'].value | json }}</pre>
+
+    <span>Precio - Errors</span>
+    <pre>{{ myForm.controls['price'].errors | json }}</pre>
+
+    <span>Producto</span>
+    <pre>{{ myForm.controls['name'].value | json }}</pre>
+
+    <span>Producto</span>
+    <pre>{{ myForm.controls['name'].errors | json }}</pre>
+  </div>
+</div>
